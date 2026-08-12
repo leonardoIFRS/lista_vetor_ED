@@ -41,8 +41,12 @@ int main()
             }
             printf("Digite o valor: ");
             scanf("%d", &valor);
-            printf("Digite a posição  (de 1 a 20): ");
+            printf("Digite a posição (de 1 a 20): ");
             scanf("%d", &posicao);
+            if (posicao < 1 || posicao > 20)
+            {
+                printf("Erro! Informar posição (de 1 a 20)");
+            }
             posicao--;
             if (ocupados < posicao)
             {
@@ -58,7 +62,7 @@ int main()
             }
             ocupados++;
         }
-        else if(codigo == 3)
+        else if (codigo == 2)
         {
             if(ocupados == 0)
             {
@@ -67,28 +71,56 @@ int main()
             }
             printf("Digite a posição  (de 1 a 20): ");
             scanf("%d", &posicao);
+            if (posicao < 1 || posicao > 20)
+            {
+                printf("Erro! Informar posição (de 1 a 20)");
+                continue;
+            }
             posicao--;
             if (ocupados <= posicao)
             {
                 printf("Posição vazia.\n");
-                continue;
             }
             else
             {
-                for(int i = posicao; posicao < ocupados; i++)
+                printf("Valor da posição %d: %d\n", posicao + 1, lista[posicao]);
+            }
+        }
+        else if (codigo == 3)
+        {
+            if(ocupados == 0)
+            {
+                printf("Lista vazia.\n");
+                continue;
+            }
+            printf("Digite a posição  (de 1 a 20): ");
+            scanf("%d", &posicao);
+            if (posicao < 1 || posicao > 20)
+            {
+                printf("Erro! Informar posição (de 1 a 20)");
+            }
+            posicao--;
+            if (ocupados <= posicao)
+            {
+                printf("Posição vazia.\n");
+            }
+            else
+            {
+                for(int i = posicao; i < ocupados; i++)
                 {
                     lista[i] = lista[i+1];
                 }
-                lista[posicao] = valor;
+                ocupados--;
             }
-            ocupados--;
         }
         else if (codigo == 4)
         {
-            for(int i = 0; i < ocupados; i++)
+            printf("[ %d", lista[0]);
+            for(int i = 1; i < ocupados; i++)
             {
-                printf("%d\n",  lista[i]);
+                printf(", %d",  lista[i]);
             }
+            printf(" ]");
         }
         
     }
