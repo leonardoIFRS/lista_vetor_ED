@@ -58,7 +58,7 @@ int main()
             }
             ocupados++;
         }
-        if(codigo == 3)
+        else if(codigo == 3)
         {
             if(ocupados == 0)
             {
@@ -82,6 +82,13 @@ int main()
                 lista[posicao] = valor;
             }
             ocupados--;
+        }
+        else if (codigo == 4)
+        {
+            for(int i = 0; i < ocupados; i++)
+            {
+                printf("%d\n",  lista[i]);
+            }
         }
         
     }
