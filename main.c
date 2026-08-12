@@ -24,6 +24,7 @@ int main()
     int ocupados = 0;
     int codigo = 0;
     int valor;
+    int posicao;
     
     while(codigo != 5)
     {
@@ -38,21 +39,57 @@ int main()
                 printf("Lista cheia.\n");
                 continue;
             }
-            if (ocupados > posicao)
+            printf("Digite o valor: ");
+            scanf("%d", &valor);
+            printf("Digite a posição  (de 1 a 20): ");
+            scanf("%d", &posicao);
+            posicao--;
+            if (ocupados < posicao)
             {
-                lista[ocupados] = valor
+                lista[ocupados] = valor;
             }
             else
             {
-                for(int i = ocupados-1; posicao >= i; i--)
+                for(int i = ocupados; posicao < i; i--)
                 {
-                    lista[i+1] = lista[i];
+                    lista[i] = lista[i-1];
                 }
+                lista[posicao] = valor;
             }
+            ocupados++;
+        }
+        if(codigo == 3)
+        {
+            if(ocupados == 0)
+            {
+                printf("Lista vazia.\n");
+                continue;
+            }
+            printf("Digite a posição  (de 1 a 20): ");
+            scanf("%d", &posicao);
+            posicao--;
+            if (ocupados <= posicao)
+            {
+                printf("Posição vazia.\n");
+                continue;
+            }
+            else
+            {
+                for(int i = posicao; posicao < ocupados; i++)
+                {
+                    lista[i] = lista[i+1];
+                }
+                lista[posicao] = valor;
+            }
+            ocupados--;
         }
         
     }
     
-    printf("Fim do programa")
+    for(int i = 0; i < ocupados; i++) {
+        printf("%d\n",  lista[i]);
+    }
+
+    printf("Fim do programa");
     return 0;
 }
