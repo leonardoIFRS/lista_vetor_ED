@@ -35,7 +35,8 @@ void menu()
 
 int main()
 {
-    int lista[20];
+    int TAMANHO = 5;
+    int lista[TAMANHO];
     int ocupados = 0;
     int codigo = 0;
     int valor;
@@ -44,23 +45,23 @@ int main()
     while(codigo != 5)
     {
         menu();
-        printf("Digite sua opção:");
+        printf("Digite sua opção: ");
         scanf("%d", &codigo);
         
         if(codigo == 1)
         {
-            if(ocupados == 20)
+            if(ocupados == TAMANHO)
             {
                 printf("!!! Lista cheia.\n");
                 continue;
             }
             printf("Digite o valor: ");
             scanf("%d", &valor);
-            printf("Digite a posição (de 1 a 20): ");
+            printf("Digite a posição (de 1 a %d): ", TAMANHO);
             scanf("%d", &posicao);
-            if (posicao < 1 || posicao > 20)
+            if (posicao < 1 || posicao > TAMANHO)
             {
-                printf("Erro!!! Informar posição (de 1 a 20)");
+                printf("Erro!!! Informar posição (de 1 a %d)", TAMANHO);
                 continue;
             }
             posicao--;
@@ -87,11 +88,11 @@ int main()
                 printf("!!! Lista vazia.\n");
                 continue;
             }
-            printf("Digite a posição  (de 1 a 20): ");
+            printf("Digite a posição  (de 1 a %d): ", TAMANHO);
             scanf("%d", &posicao);
-            if (posicao < 1 || posicao > 20)
+            if (posicao < 1 || posicao > TAMANHO)
             {
-                printf("Erro!!! Informar posição (de 1 a 20)");
+                printf("Erro!!! Informar posição (de 1 a %d)");
                 continue;
             }
             posicao--;
@@ -111,11 +112,11 @@ int main()
                 printf("!!! Lista vazia.\n");
                 continue;
             }
-            printf("Digite a posição  (de 1 a 20): ");
+            printf("Digite a posição  (de 1 a %d): ", TAMANHO);
             scanf("%d", &posicao);
-            if (posicao < 1 || posicao > 20)
+            if (posicao < 1 || posicao > TAMANHO)
             {
-                printf("Erro!!! Informar posição (de 1 a 20)");
+                printf("Erro!!! Informar posição (de 1 a %d)", TAMANHO);
             }
             posicao--;
             if (ocupados <= posicao)
